@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td, th {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /*
+        Завдання:
+        Створіть таблицю (table, tr, td) на основі масиву об'єктів з ім'ям source. Кожен об'єкт – окремий рядок таблиці. Властивість month – значення для першої колонки.
+        Властивість amont – значення для другої колонки.
+        */
+
+        let source = [
+            {
+                month: "Січень",
+                amount: 20
+            },
+            {
+                month: "Лютий",
+                amount: 140
+            },
+            {
+                month: "Березень",
+                amount: 115
+            },
+            {
+                month: "Квітень",
+                amount: 100
+            },
+            {
+                month: "Травень",
+                amount: 80
+            },
+            {
+                month: "Червень",
+                amount: 90
+            },
+            {
+                month: "Липень",
+                amount: 100
+            }
+        ];
+
+
+        let tr_nodes = (month_sour, amount_sour) => {
+         let tr = document.createElement("tr");
+         tr.append(td_nodes(month_sour));
+         tr.append(td_nodes(amount_sour));
+         return tr;
+        };
+
+        let td_nodes = (sour) => {
+         let td = document.createElement("td");
+         td.textContent = sour;
+         return td;
+        };
+
+
+        let table = document.createElement("table");
+        for(const sour of source){
+         table.append(tr_nodes(sour.month, sour.amount));
+        }
+        document.body.append(table);
+
+
+    </script>
+</body>
+
+</html>
